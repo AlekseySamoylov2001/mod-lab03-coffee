@@ -28,7 +28,7 @@ static void PrintInfo(STATES state) {
 }
 
 void Automata::Choice(int pos) {
-    if (position <= MENU_SIZE && position > 0) {
+    if (pos <= MENU_SIZE && pos > 0) {
         if (state == ACCEPT) {
             state = CHECK;
             position = pos - 1;
