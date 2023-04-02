@@ -1,13 +1,12 @@
+// Copyright 2023 UNN-IASR
 #include "Automata.h"
 
 using std::cout;
 using std::string;
 using std::endl;
 
-static void PrintInfo(STATES state) 
-{
-    switch (state) 
-    {
+static void PrintInfo(STATES state) {
+    switch (state) {
         case OFF:
             cout << "Automata is off" << endl;
             break;
@@ -30,69 +29,51 @@ static void PrintInfo(STATES state)
 
 namespace Automata {
 
-    void Choice(int pos) 
-    {
-        if (position <= MENU_SIZE && position > 0) 
-        {
-            if (state == ACCEPT) 
-            {
+    void Choice(int pos) {
+        if (position <= MENU_SIZE && position > 0) {
+            if (state == ACCEPT) {
                 state = CHECK;
                 position = pos - 1;
             }
-        }
-        else 
-        {
+        } else {
             cout << "Invalid value entered" << endl;
         }
         PrintInfo(state);
     }
 
-    void On() 
-    {
-        if (state == OFF) 
-        {
+    void On() {
+        if (state == OFF) {
             state = WAIT;
 
             cout << "Menu of Automata" << endl;
-            for (int i = 0; i < MENU_SIZE; i++) 
-            {
+            for (int i = 0; i < MENU_SIZE; i++)  {
                 cout << i + 1 << " position: " << menu[i] << endl;
             }
-
         }
         PrintInfo(state);
     }
 
-    void Off() 
-    {
-        if (state == WAIT)
-        {
+    void Off() {
+        if (state == WAIT) {
             state = OFF;
         }
         PrintInfo(state);
     }
 
-    void Coin(double money)
-    {
-        if (state == WAIT || state == ACCEPT) 
-        {
+    void Coin(double money) {
+        if (state == WAIT || state == ACCEPT) {
             state = ACCEPT;
             cash += money;
         }
         PrintInfo(state);
     }
 
-    void Check() 
-    {
-        if (state == CHECK)
-        {
+    void Check() {
+        if (state == CHECK) {
             cout << "---" << cash << endl;
-            if (cash >= prices[position]) 
-            {
+            if (cash >= prices[position]) {
                 state = COOK;
-            }
-            else 
-            {
+            } else {
                 cout << "Not enough money" << endl;
                 position = -1;
                 state = WAIT;
@@ -101,10 +82,8 @@ namespace Automata {
         PrintInfo(state);
     }
 
-    int Cancel()
-    {
-        if (state == ACCEPT || state == CHECK) 
-        {
+    int Cancel() {
+        if (state == ACCEPT || state == CHECK) {
             position = -1;
             state = WAIT;
             double change = cash;
@@ -115,21 +94,17 @@ namespace Automata {
         return -1;
     }
 
-    void Cook() 
-    {
-        if (state == COOK) 
-        {
+    void Cook() {
+        if (state == COOK)  {
             cash -= prices[position];
             cout << "Processing..." << endl;
         }
     }
 
-    void Finish()
-    {
-        if (state == COOK) 
-        {
+    void Finish() {
+        if (state == COOK) {
             state = WAIT;
         }
         PrintInfo(state);
     }
-}
+} // namespace Automata

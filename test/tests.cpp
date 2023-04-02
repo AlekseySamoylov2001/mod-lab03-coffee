@@ -3,23 +3,20 @@
 #include <gtest/gtest.h>
 #include "Automata.h"
 
-TEST(TEST1, TrueOrFalse)
-{
+TEST(TEST1, TrueOrFalse) {
     Automata automata;
     automata.On();
     EXPECT_EQ(STATES::WAIT, automata.GetState());
 }
 
-TEST(TEST2, TrueOrFalse)
-{
+TEST(TEST2, TrueOrFalse) {
     Automata automata;
     automata.On();
     automata.Coin(100);
     EXPECT_EQ(STATES::ACCEPT, automata.GetState());
 }
 
-TEST(TEST3, TrueOrFalse)
-{
+TEST(TEST3, TrueOrFalse) {
     Automata automata;
     automata.On();
     automata.Coin(100);
@@ -27,8 +24,7 @@ TEST(TEST3, TrueOrFalse)
     EXPECT_EQ(STATES::ACCEPT, automata.GetState());
 }
 
-TEST(TEST4, TrueOrFalse)
-{
+TEST(TEST4, TrueOrFalse) {
     Automata automata;
     automata.On();
     automata.Coin(100);
@@ -36,8 +32,7 @@ TEST(TEST4, TrueOrFalse)
     EXPECT_EQ(STATES::CHECK, automata.GetState());
 }
 
-TEST(TEST5, TrueOrFalse)
-{
+TEST(TEST5, TrueOrFalse) {
     Automata automata;
     automata.On();
     automata.Coin(100);
@@ -46,8 +41,7 @@ TEST(TEST5, TrueOrFalse)
     EXPECT_EQ(STATES::WAIT, automata.GetState());
 }
 
-TEST(TEST6, TrueOrFalse)
-{
+TEST(TEST6, TrueOrFalse) {
     Automata automata;
     automata.On();
     automata.Coin(120);
@@ -56,8 +50,7 @@ TEST(TEST6, TrueOrFalse)
     EXPECT_EQ(STATES::COOK, automata.GetState());
 }
 
-TEST(TEST7, TrueOrFalse)
-{
+TEST(TEST7, TrueOrFalse) {
     Automata automata;
     automata.On();
     automata.Coin(120);
@@ -67,8 +60,7 @@ TEST(TEST7, TrueOrFalse)
     EXPECT_EQ(0, automata.GetCash());
 }
 
-TEST(TEST8, TrueOrFalse)
-{
+TEST(TEST8, TrueOrFalse) {
     Automata automata;
     automata.On();
     automata.Coin(120);

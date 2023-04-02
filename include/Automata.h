@@ -1,3 +1,4 @@
+// Copyright 2023 UNN-IASR
 #pragma once
 #include <iostream>
 #include <string>
@@ -17,7 +18,7 @@ enum STATES {
 };
 
 class Automata {
-public:
+ public:
     Automata() {
         state = OFF;
         cash = 0;
@@ -35,18 +36,15 @@ public:
         position = -1;
     }
 
-    array<string, MENU_SIZE> GetMenu() 
-    {
+    array<string, MENU_SIZE> GetMenu() {
         return menu;
     }
 
-    STATES GetState()
-    {
+    STATES GetState() {
         return state;
     }
 
-    double GetCash()
-    {
+    double GetCash() {
         return cash;
     }
 
@@ -59,7 +57,7 @@ public:
     void Cook();
     void Finish();
 
-private:
+ private:
     STATES state;
     double cash;
     array<string, MENU_SIZE> menu;
