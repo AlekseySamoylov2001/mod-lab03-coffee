@@ -32,6 +32,7 @@ public:
             "Water"
         };
         prices = { 50, 120, 100, 125, 125, 100, 25 };
+        position = -1;
     }
 
     array<string, MENU_SIZE> GetMenu() 
@@ -63,4 +64,5 @@ private:
     double cash;
     array<string, MENU_SIZE> menu;
     array<int, MENU_SIZE> prices;
+    int position;
 };
